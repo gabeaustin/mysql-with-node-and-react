@@ -1,6 +1,6 @@
 import * as express from 'express';
-import config from "../config";
-import Blog from "./blog";
+import DB from "./db";
+// import config from "./config";
 
 const router = express.Router();
 
@@ -9,7 +9,15 @@ router.get('/api/hello', (req, res, next) => {
 });
 
 router.get("/api/blogs", async (req, res) => {
-
+    // DB.Blogs.all  // comes from server/db/index => imported at the top
+    try {
+        let blogs = await DB.Blogs.all();
+        res.json(blogs);
+        console.log("hi"); // just a test
+    } catch(error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
 })
 
 export default router;
