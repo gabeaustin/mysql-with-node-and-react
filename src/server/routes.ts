@@ -13,7 +13,6 @@ router.get("/api/blogs", async (req, res) => {
     try {
         let blogs = await DB.Blogs.all();
         res.json(blogs);
-        console.log("hi"); // just a test
     } catch(error) {
         console.log(error);
         res.sendStatus(500);
