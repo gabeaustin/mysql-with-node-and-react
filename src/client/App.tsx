@@ -18,11 +18,11 @@ const App = (props: AppProps) => {
 		getGreeting();
 	}, []);
 
-	return (
-		<main className="container my-5">
-			<h1 className="text-primary text-center">Hello {greeting}!</h1>
-		</main>
-	);
+	// return (
+	// 	<main className="container my-5">
+	// 		<h1 className="text-primary text-center">Hello {greeting}!</h1>
+	// 	</main>
+	// );
 };
 
 interface AppProps {}
@@ -49,10 +49,14 @@ class App extends React.Component<IAppProps, IAppState> {
 	render() {
 		return (
 			<main className="container my-5">
-				<h1 className="text-primary text-center">The Blog According to Gabe {this.state.blogs}</h1>
+				<h1 className="text-primary text-center">The Blog According to Gabe</h1>
                 <ul className="list-group">
                     {this.state.blogs.map(blog => {
-                        return <li className="list-group-item">{blog.title}</li>
+                        return (
+                            <>
+                                <li className="list-group-item">{blog.title}</li>
+                            </>
+                        )
                     })}
                 </ul>
 			</main>
